@@ -13,5 +13,12 @@ namespace MovieShelfAPI.Repositories
         {
             return _context.Movies.AsEnumerable();
         }
+
+        public Movie? GetById(int id)
+        {
+            var movie = _context.Movies.Where(movie => movie.Id == id).FirstOrDefault();
+
+            return movie;
+        }
     }
 }
